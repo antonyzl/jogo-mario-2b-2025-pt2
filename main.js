@@ -4,6 +4,14 @@ const pipe = document.querySelector(".pipe")
 const jump = () => {
     mario.classList.add("jump");
 
+ 
+ audiostart= new Audio ("./sound/audio_theme.mp3");
+ const gameOverSound= new Audio ("./sound/audio_gameover.mp3");
+
+ let gameStarted= false;
+
+ 
+ 
     setTimeout(() => {
         mario.classList.remove("jump");
     }
