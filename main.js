@@ -3,12 +3,13 @@ const pipe = document.querySelector(".pipe")
 
 const jump = () => {
     mario.classList.add("jump");
-
+const scoreElement = document.querySelector (".score")
  
  audiostart= new Audio ("./sound/audio_theme.mp3");
  const gameOverSound= new Audio ("./sound/audio_gameover.mp3");
 
- let gameStarted= false;
+ let gameStarted = false;
+
 
  
  
@@ -16,6 +17,13 @@ const jump = () => {
         mario.classList.remove("jump");
     }
     ,500);
+}
+
+const updateSore = () => {
+    score += 1;
+    scoreElement.textContent = score;
+    const animationSpeed = 1.5/ (1 = score/500);
+    pipe.style.animation =  ` pipe-animation ${animationSpeed}s infinty linear `;
 }
 
 const loop = setInterval(() => {
@@ -34,6 +42,7 @@ const marioPosition = +window.getComputedStyle(mario).bottom.replace("px", "");
         mario.style.marginLeft = "50px";
 
         clearInterval(loop);
-    }
+        gameOverScreen.style.display - "flex";
+    } else if (pipePosition < 0 && gameStarted) {}
 },10);
 document.addEventListener("keydown", jump);
